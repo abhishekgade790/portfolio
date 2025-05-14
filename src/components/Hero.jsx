@@ -32,9 +32,9 @@ const Hero = () => {
   };
 
   const skillBadgeVariants = {
-    hidden: { y: -50, opacity: 0 },
+    hidden: { x: -5, opacity: 0 },
     visible: (i) => ({
-      y: 0,
+      x: 0,
       opacity: 1,
       transition: {
         delay: 1.2 + i * 0.1,

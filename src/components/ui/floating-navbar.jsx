@@ -1,75 +1,117 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "motion/react";
+} from "framer-motion";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/components/lib/utils";
 
-
-export const FloatingNav = ({
-  navItems,
-  className
-}) => {
+export const FloatingNav = ({ navItems, className }) => {
   const { scrollYProgress } = useScroll();
-
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
     if (typeof current === "number") {
-      let direction = current - scrollYProgress.getPrevious();
-
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
-          setVisible(false);
-        }
-      }
+      const direction = current - scrollYProgress.getPrevious();
+      setVisible(scrollYProgress.get() >= 0 && direction < 0);
     }
   });
 
+  useEffect(() => {
+    if (!visible) setMobileOpen(false);
+  }, [visible]);
+
+  const toggleMobileMenu = () => setMobileOpen((prev) => !prev);
+
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        initial={{
-          opacity: 1,
-          y: -100,
-        }}
-        animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{
-          duration: 0.2,
-        }}
-        className={cn(
-          "flex max-w-fit  fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2  items-center justify-center space-x-4",
-          className
-        )}>
-        {navItems.map((navItem, idx) => (
-          <a
-            key={`link=${idx}`}
-            href={navItem.link}
+    <>
+      {/* Floating Nav (Desktop + Mobile Icon) */}
+      <AnimatePresence mode="wait">
+        {visible && (
+          <motion.div
+            initial={{ opacity: 1, y: -100 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -100, opacity: 0 }}
+            transition={{ duration: 0.5 }}
             className={cn(
-              "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
-            )}>
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </a>
-        ))}
-        <button
-          className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span
-            className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
-        </button>
-      </motion.div>
-    </AnimatePresence>
+              "fixed top-4 right-4 z-[5000] p-[2px] rounded-full animated-gradient-border shadow-lg",
+              className
+            )}
+          >
+            <div className="flex items-center justify-end px-3 py-2 bg-neutral-950 rounded-full space-x-3 backdrop-blur-2xl text-sm text-white">
+              {/* Desktop Nav */}
+              <div className="hidden sm:flex items-center space-x-4">
+                {navItems.map((item, idx) => (
+                  <a
+                    key={idx}
+                    href={item.link}
+                    className=""
+                  >
+                    <div className="bg-neutral-950 px-4 py-2 rounded-full text-white hover:text-indigo-300">
+                      {item.name}
+                    </div>
+                  </a>
+                ))}
+              </div>
+
+              {/* Mobile Toggle Icon */}
+              <div className="sm:hidden flex items-center hover:text-indigo-400">
+                <button onClick={toggleMobileMenu} className="p-1">
+                  {mobileOpen ? <X className="w-5 h-7" /> : <Menu className="w-5 h-7" />}
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -50, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-16 right-4 z-[4999] sm:hidden"
+          >
+            <motion.ul
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.1 } },
+              }}
+              className="mt-4 space-y-2"
+            >
+              {navItems.map((item, idx) => (
+                <motion.li
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, y: -10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                >
+                  <a
+                    href={item.link}
+                    onClick={() => setMobileOpen(false)}
+                    className="p-[2px] block rounded-full animated-gradient-border hover:from-purple-600 hover:to-blue-600 transition-all"
+                  >
+                    <div className="bg-neutral-950 text-white hover:text-indigo-300 text-center p-4 rounded-full shadow-xl backdrop-blur-lg">
+                      {item.icon}
+                    </div>
+                  </a>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };

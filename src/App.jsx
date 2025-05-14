@@ -1,15 +1,18 @@
-import Hero from './components/Hero';
+import About from "./components/About";
+import { FloatingNavDemo } from "./components/FloatingNavDemo";
+import Hero from "./components/Hero";
+import Projects from "./components/Projects";
 
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className="relative">
+      <FloatingNavDemo/> 
       <Hero />
-
-
+      <Projects/>
+      <About />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
