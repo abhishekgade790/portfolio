@@ -1,3 +1,6 @@
+
+
+
 export const projects = [
   {
     name: "Quick Bite",
@@ -5,7 +8,7 @@ export const projects = [
       "Dual-mode food & grocery delivery web app with dynamic filtering, theme switching, and cart management using Redux Toolkit.",
     href: "https://quike-bite.web.app/",
     github: "https://github.com/abhishekgade790/quick-bite",
-    image: "../assets/images/quick-bite-demo.png",
+    image: "/public/image/quick-bite-demo.png",
     technologies: [
       "React",
       "Redux Toolkit",
@@ -30,7 +33,7 @@ export const projects = [
       "AI-powered movie recommender with Firebase auth, Framer Motion animations, and Gemini API integration.",
     href: "https://cinenestgpt.web.app/browse",
     github: "https://github.com/abhishekgade790/netflix-gpt",
-    image: "../assets/images/cinenest-gpt-demo.png",
+    image: "/public/image/cinenest-gpt-demo.png",
     technologies: [
       "React",
       "Redux Toolkit",
@@ -54,7 +57,7 @@ export const projects = [
       "A modern portfolio website showcasing my work, tech stack, and resume with floating navigation and section transitions.",
     href: "https://abhishekgade790.github.io/portfolio/",
     github: "https://github.com/abhishekgade790/portfolio",
-    image: "../assets/images/portfolio-demo.png",
+    image: "/public/image/portfolio-demo.png",
     technologies: [
       "React",
       "Tailwind CSS",
