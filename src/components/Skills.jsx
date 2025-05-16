@@ -64,7 +64,7 @@ const Skills = () => {
     }, []);
 
     return (
-        <div ref={skillsRef} className="flex flex-col items-center py-16 px-4 bg-neutral-900">
+        <div id="skills" ref={skillsRef} className="flex flex-col items-center py-16 px-4 bg-neutral-900">
             <motion.h1
                 initial={{ opacity: 0, y: -10,scale:0.9 }}
                 animate={isVisible ? { opacity: 1, y: 0, scale:1} : {}}
@@ -74,14 +74,14 @@ const Skills = () => {
                 Skills That Power My Work!
             </motion.h1>
 
-            <div className="max-w-4xl w-full">
+            <div className="max-w-4xl w-full items-center">
                 {Object.entries(skills).map(([category, skillList]) => (
                     <motion.div
                         key={category}
                         initial="hidden"
                         animate={isVisible ? "visible" : "hidden"}
                         variants={{
-                            hidden: { opacity: 0, y: 10 },
+                            hidden: { opacity: 0, y: 50 },
                             visible: {
                                 opacity: 1,
                                 y: 0,
@@ -92,16 +92,16 @@ const Skills = () => {
                                 },
                             },
                         }}
-                        className="mt-8 mb-16"
+                        className="mt-8 mb-12 flex flex-col items-center justify-center"
                     >
                         <h2 className="text-3xl font-semibold mb-6 text-center bg-gradient-to-r from-indigo-300 to-purple-300 text-transparent bg-clip-text">
                             {category.charAt(0).toUpperCase() + category.slice(1)}
                         </h2>
-                        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-5 md:gap-8">
+                        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-5 lg:gap-8">
                             {skillList.map((tech, idx) => (
                                 <motion.div
                                     key={idx}
-                                    initial={{ opacity: 0, x: 20 }}
+                                    initial={{ opacity: 0, x: 5 }}
                                     animate={isVisible ? { opacity: 1, x: 0 } : {}}
                                     transition={{ delay: idx * 0.1, duration: 0.5 ,ease:"easeInOut",staggerChildren:0.5}}
                                     className="flex flex-col items-center justify-center p-3 md:p-4 rounded-lg shadow-lg transition-transform bg-zinc-950 border border-gray-300/50 w-32 md:w-36 aspect-square hover:scale-105 hover:bg-zinc-800/20"
