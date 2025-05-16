@@ -33,7 +33,6 @@ const About = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="max-w-2xl text-center"
       >
-        {/* Gradient Animated Heading */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -43,7 +42,6 @@ const About = () => {
           About Me
         </motion.h1>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, x: -50 }}
           animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -63,7 +61,6 @@ const About = () => {
           When I'm not coding, I explore UI/UX trends, work on open-source projects, and play video games.
         </motion.p>
 
-        {/* Contact Links with hover animation */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
