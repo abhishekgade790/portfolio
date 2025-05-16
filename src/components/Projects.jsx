@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { projects } from "../utils/projectsData";
-import { Sparkles, Code, Play, InfoIcon } from "lucide-react";
+import {  Code, Play, InfoIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
@@ -13,12 +13,12 @@ export default function Projects() {
       id="projects"
       className="min-h-screen w-full bg-neutral-900 py-16 px-4 flex items-center justify-center relative"
     >
-      <div className="w-full max-w-7xl z-10">
+      <div className="w-full max-w-4xl z-10">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-900 via-indigo-200 to-blue-800">
+          <h1 className="p-2 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-900 via-indigo-200 to-blue-800">
             Projects
           </h1>
-          <p className="text-gray-400 mt-2 text-lg">A glimpse into what I've built.</p>
+          <p className="text-gray-400 text-lg">A glimpse into what I've built.</p>
         </div>
         <GlowingEffectGrid setOpen={setOpenProjectIndex} />
       </div>
@@ -40,7 +40,7 @@ export default function Projects() {
             >
               {/* Back Button */}
               <button
-                className="mb-2 top-4 left-4 text-white border border-neutral-600 bg-gradient-to-r from-neutral-800/60 to-neutral-700/60 shadow-md hover:shadow-lg backdrop-blur-lg cursor-pointer flex items-center gap-2 rounded-xl px-4 py-2 transition duration-200 hover:bg-neutral-700/70 active:scale-95"
+                className="mb-2 top-4 left-4 text-white border border-neutral-700 bg-gradient-to-r from-neutral-800/40 to-neutral-700/40 shadow-md hover:shadow-lg backdrop-blur-lg cursor-pointer flex items-center gap-2 rounded-xl px-4 py-2 transition duration-200 hover:bg-neutral-700/50 active:scale-95"
                 onClick={() => setOpenProjectIndex(null)}
               >
                 <svg
@@ -136,7 +136,7 @@ export default function Projects() {
 
 function GlowingEffectGrid({ setOpen }) {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-5">
       {projects.map((project, index) => (
         <GridItem
           key={index}
@@ -166,9 +166,9 @@ const GridItem = ({
     <motion.li layoutId={`card-${index}`} className="list-none">
       <motion.div
         layoutId={`card-container-${index}`}
-        className="relative h-full rounded-2xl border border-neutral-800 p-2 md:rounded-3xl md:p-3 bg-neutral-950 flex flex-col"
+        className="relative h-full rounded-2xl border border-neutral-800 p-3 md:rounded-3xl md:p-3 bg-neutral-950 flex flex-col"
       >
-        <GlowingEffect spread={40} glow proximity={64} inactiveZone={0.01} disabled={false} />
+        <GlowingEffect spread={40} glow proximity={164} inactiveZone={0.02} disabled={false} />
         <div className="flex flex-col h-full">
           <motion.img
             src={image}
@@ -189,34 +189,34 @@ const GridItem = ({
             {description}
           </motion.p>
           <div className="mt-4 m-2 flex justify-end flex-wrap gap-3">
-  <button
-    onClick={() => setOpen(index)}
-    className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-neutral-800/60 hover:bg-neutral-700/70 text-neutral-200 hover:text-white border border-neutral-700 shadow-sm hover:shadow-lg transition-all duration-200 backdrop-blur-md"
-  >
-    <InfoIcon className="w-5 h-5" />
-    Info
-  </button>
+            <button
+              onClick={() => setOpen(index)}
+              className="flex items-center gap-1.5 md:px-3 md:py-2 px-2 py-1 text-sm rounded-lg bg-neutral-800/60 hover:bg-neutral-700/70 text-neutral-200 hover:text-white border border-neutral-700 shadow-sm hover:shadow-lg transition-all duration-200 backdrop-blur-md"
+            >
+              <InfoIcon className="w-4 h-4" />
+              Info
+            </button>
 
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gradient-to-r from-blue-700 to-indigo-700 text-white hover:from-blue-600 hover:to-indigo-600 shadow hover:shadow-xl transition-all duration-200"
-  >
-    <Play className="w-5 h-5" />
-    Live
-  </a>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 md:px-3 md:py-2 px-2 py-1 text-sm rounded-lg bg-gradient-to-r from-blue-700 to-indigo-700 text-white hover:from-blue-600 hover:to-indigo-600 shadow hover:shadow-xl transition-all duration-200"
+            >
+              <Play className="w-4 h-4" />
+              Live
+            </a>
 
-  <a
-    href={github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-gray-700 text-gray-300 hover:text-white hover:bg-neutral-800/50 shadow-sm hover:shadow-md transition-all duration-200"
-  >
-    <Code className="w-5 h-5" />
-    Code
-  </a>
-</div>
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 md:px-3 md:py-2 px-2 py-1 text-sm rounded-lg border border-gray-700 text-gray-300 hover:text-white hover:bg-neutral-800/50 shadow-sm hover:shadow-md transition-all duration-200"
+            >
+              <Code className="w-4 h-4" />
+              Code
+            </a>
+          </div>
 
         </div>
       </motion.div>

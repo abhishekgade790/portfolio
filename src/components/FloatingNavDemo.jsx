@@ -6,6 +6,11 @@ import { IconFileText } from "@tabler/icons-react";
 import { IconCode } from "@tabler/icons-react";
 import { IconTools } from "@tabler/icons-react";
 import { IconTool } from "@tabler/icons-react";
+import { PhoneCall } from "lucide-react";
+import { Contact2Icon } from "lucide-react";
+import { User } from "lucide-react";
+import { User2 } from "lucide-react";
+import { IconCodeCircle } from "@tabler/icons-react";
 export function FloatingNavDemo() {
   const navItems = [
   {
@@ -21,7 +26,7 @@ export function FloatingNavDemo() {
   {
     name: "About",
     link: "#about",
-    icon: <IconUser className="h-4 w-4" />,
+    icon: <User2 className="h-4 w-4" />,
   },
   {
     name: "Skills",
@@ -36,7 +41,7 @@ export function FloatingNavDemo() {
   {
     name: "Contact",
     link: "#contact",
-    icon: <IconMessage className="h-4 w-4" />,
+    icon: <Contact2Icon className="h-4 w-4" />,
   },
 ];
   return (
