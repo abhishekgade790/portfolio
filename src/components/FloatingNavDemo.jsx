@@ -1,16 +1,12 @@
 "use client";
 import React from "react";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
+import { IconHome } from "@tabler/icons-react";
 import { IconFileText } from "@tabler/icons-react";
 import { IconCode } from "@tabler/icons-react";
-import { IconTools } from "@tabler/icons-react";
 import { IconTool } from "@tabler/icons-react";
-import { PhoneCall } from "lucide-react";
 import { Contact2Icon } from "lucide-react";
-import { User } from "lucide-react";
 import { User2 } from "lucide-react";
-import { IconCodeCircle } from "@tabler/icons-react";
 export function FloatingNavDemo() {
   const navItems = [
   {

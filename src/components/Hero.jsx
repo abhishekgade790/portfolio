@@ -63,8 +63,8 @@ const Hero = () => {
           variants={itemVariants}
         >
           <h1 className="text-[3em] md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-100 to-indigo-500 mb-4">
-  Hi, I'm Abhi!
-</h1>
+            Hi, I'm Abhi!
+          </h1>
 
           <p className="text-base md:text-lg text-neutral-300 mb-6">
             Frontend developer crafting interactive, responsive, and visually
@@ -73,47 +73,55 @@ const Hero = () => {
           </p>
 
           <motion.div
-  className="flex flex-row gap-4 mb-6 justify-center md:justify-start"
-  variants={itemVariants}
->
-  {/* Download CV Button */}
-  <motion.a
-    href="/Abhishek-CV.pdf"
-    download
-    whileTap={{ scale: 0.97 }}
-    whileHover={{ scale: 1.04 }}
-    className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md hover:shadow-lg hover:from-indigo-500 hover:to-purple-500 transition-all duration-100 ease-in-out"
-  >
-    <Download size={18} /> Download CV
-  </motion.a>
+            className="flex flex-row gap-4 mb-6 justify-center md:justify-start"
+            variants={itemVariants}
+          >
+            {/* Download CV Button */}
+            <motion.a
+              href="https://drive.google.com/file/d/1fHiVo5UN9RjUs20z2QIN1wKyepQOdlbW/view?usp=drivesdk"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.04 }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md hover:shadow-lg hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 ease-in-out"
+            >
+              <Download size={18} /> Download CV
+            </motion.a>
 
-  {/* Hire Me Button with soft glow */}
-  <motion.div
-    whileTap={{ scale: 0.97 }}
-    whileHover={{ scale: 1.04 }}
-  >
-    <HoverBorderGradient className="inline-flex items-center gap-2 px-6 py-3 font-medium text-white rounded-full transition-all duration-100 ease-in-out hover:shadow-md hover:shadow-pink-500/30">
-      <MailIcon size={18} /> Hire Me
-    </HoverBorderGradient>
-  </motion.div>
-</motion.div>
+            {/* Hire Me Button with soft glow */}
+            <motion.div
+              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.04 }}
+            >
+              <a
+                href="mailto:abhishekgade790@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <HoverBorderGradient className="inline-flex items-center justify-center gap-2 px-6 py-3 font-medium text-white rounded-full transition-all duration-100 ease-in-out hover:shadow-md hover:shadow-pink-500/30">
+                  <MailIcon size={18} />
+                  Contact Me
+                </HoverBorderGradient>
+              </a>
+            </motion.div>
+          </motion.div>
 
 
           {/* Tech badges */}
-<div className="flex flex-wrap gap-3 justify-center md:justify-start mt-4">
-  {techs.map((tech, index) => (
-    <motion.div
-      key={tech}
-      className="py-1 px-2 text-xs font-normal rounded-full text-indigo-200 bg-gradient-to-r from-purple-400/10 to-pink-300/10 border border-white/10 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-400/30"
-      variants={skillBadgeVariants}
-      custom={index}
-      initial="hidden"
-      animate="visible"
-    >
-      {tech}
-    </motion.div>
-  ))}
-</div>
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-4">
+            {techs.map((tech, index) => (
+              <motion.div
+                key={tech}
+                className="py-1 px-2 text-xs font-normal rounded-full text-indigo-200 bg-gradient-to-r from-purple-400/10 to-pink-300/10 border border-white/10 backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-400/30"
+                variants={skillBadgeVariants}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+              >
+                {tech}
+              </motion.div>
+            ))}
+          </div>
 
         </motion.div>
 
@@ -131,14 +139,11 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         >
-          {/* Gradient Glows */}
           <div className="absolute left-[-40px] top-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-indigo-600 to-transparent blur-2xl opacity-50 rounded-full z-0"></div>
           <div className="absolute right-[-40px] top-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-l from-blue-500 to-transparent blur-2xl opacity-50 rounded-full z-0"></div>
 
-          {/* Aura Pulse Animation */}
           <div className="absolute inset-0 rounded-full animate-[pulseGlow_5s_ease-in-out_infinite] z-0"></div>
 
-          {/* Image with Hover Effect */}
           <motion.div
             whileHover={{ scale: 1.05, rotateZ: 2 }}
             transition={{ type: "spring", stiffness: 120 }}
@@ -154,7 +159,6 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Custom PulseGlow Animation */}
       <style jsx>{`
         @keyframes pulseGlow {
           0%, 100% {

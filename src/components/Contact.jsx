@@ -32,7 +32,7 @@ const Contact = () => {
                 Let's Connect!
             </motion.h1>
 
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4 p-4 max-w-4xl w-full md:grid md:grid-cols-8 md:grid-rows-9">
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 p-4 max-w-4xl w-full md:grid md:grid-cols-8 md:grid-rows-9">
                 {/* Gmail */}
                 <motion.a href="mailto:abhishekgade790@gmail.com" target="_blank"
                     className="flex items-center justify-center p-4 md:p-12 bg-zinc-800 border text-2xl border-neutral-400/50 rounded-lg text-white gap-2 hover:bg-red-500 hover:bg-opacity-80 transition md:col-span-4 md:row-span-3 md:w-auto w-full"
@@ -81,7 +81,7 @@ const Contact = () => {
                 initial={{ opacity: 0, scale: 0.7 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : {}}
                 transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                className="text-gray-300 m-4 text-lg text-center max-w-4xl mt-12 md:mt-15 mb-16 md:mb-24"
+                className="text-gray-400 m-4 text-md text-center max-w-4xl mt-12 md:mt-15 mb-16 md:mb-24"
             >
                 You’re welcome to connect with me on any of these platforms. I’m always excited to collaborate on innovative projects, brainstorm fresh ideas, or explore new opportunities that align with your vision.
             </motion.p>
