@@ -57,7 +57,7 @@ export const projects = [
     name: "Abhi's Portfolio",
     description:
       "A modern portfolio website showcasing my work, tech stack, and resume with floating navigation and section transitions.",
-    href: "https://abhishekgade790.github.io/portfolio/",
+    href: "https://abhishek-drab.vercel.app/",
     github: "https://github.com/abhishekgade790/portfolio",
     image: portfolioDemoImage,
     technologies: [
