@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Download, MailIcon } from "lucide-react";
-import heroImage from "../assets/images/heroImage.png";
+import heroImage from "/image/heroImage.png";
 
 const Hero = () => {
   const containerVariants = {

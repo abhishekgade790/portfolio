@@ -1,4 +1,6 @@
-
+import quickbiteDemoImage from "/image/quick-bite-demo.png"
+import cinenestGPTDemoImage from "/image/cinenest-gpt-demo.png"
+import portfolioDemoImage from "/image/portfolio-demo.png"
 
 
 export const projects = [
@@ -8,7 +10,7 @@ export const projects = [
       "Dual-mode food & grocery delivery web app with dynamic filtering, theme switching, and cart management using Redux Toolkit.",
     href: "https://quike-bite.web.app/",
     github: "https://github.com/abhishekgade790/quick-bite",
-    image: "/image/quick-bite-demo.png",
+    image: quickbiteDemoImage,
     technologies: [
       "React",
       "Redux Toolkit",
@@ -33,7 +35,7 @@ export const projects = [
       "AI-powered movie recommender with Firebase auth, Framer Motion animations, and Gemini API integration.",
     href: "https://cinenestgpt.web.app/browse",
     github: "https://github.com/abhishekgade790/netflix-gpt",
-    image: "/image/cinenest-gpt-demo.png",
+    image: cinenestGPTDemoImage,
     technologies: [
       "React",
       "Redux Toolkit",
@@ -57,7 +59,7 @@ export const projects = [
       "A modern portfolio website showcasing my work, tech stack, and resume with floating navigation and section transitions.",
     href: "https://abhishekgade790.github.io/portfolio/",
     github: "https://github.com/abhishekgade790/portfolio",
-    image: "/image/portfolio-demo.png",
+    image: portfolioDemoImage,
     technologies: [
       "React",
       "Tailwind CSS",
@@ -78,7 +80,7 @@ export const projects = [
       "Exciting projects are in the works—stay tuned for more!",
     href: "#",
     github: "#",
-    image: "../assets/images/coming-soon.png",
+    image: "/images/coming-soon.png",
     technologies: ["React", "Tailwind CSS"],
     features: ["Upcoming innovative full-stack projects and open source tools."]
   }
