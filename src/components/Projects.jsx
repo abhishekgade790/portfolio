@@ -1,12 +1,26 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { projects } from "../utils/projectsData";
-import {  Code, Play, InfoIcon } from "lucide-react";
+import { Code, Play, InfoIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
+
+
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.2 }
+    );
+
+    if (contactRef.current) observer.observe(contactRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div
@@ -15,9 +29,14 @@ export default function Projects() {
     >
       <div className="w-full max-w-4xl z-10">
         <div className="text-center mb-8">
-          <h1 className="p-2 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-900 via-indigo-200 to-blue-800">
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+            className="p-2 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-900 via-indigo-200 to-blue-800"
+          >
             Projects
-          </h1>
+          </motion.h1>
           <p className="text-gray-400 text-lg">A glimpse into what I've built.</p>
         </div>
         <GlowingEffectGrid setOpen={setOpenProjectIndex} />
