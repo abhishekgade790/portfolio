@@ -8,7 +8,7 @@ import Skills from "./components/Skills";
 
 const App = () => {
   return (
-    <div className="relative w-full max-w-screen overflow-x-hidden">
+    <div className="relative w-full max-w-screen overflow-x-hidden no-scrollbar">
       <FloatingNavDemo/> 
       <Hero />
       <Projects/>

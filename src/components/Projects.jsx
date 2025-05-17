@@ -53,7 +53,7 @@ export default function Projects() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-neutral-950 border border-neutral-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative"
+              className="bg-neutral-950 border border-neutral-800 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative no-scrollbar"
               onClick={(e) => e.stopPropagation()}
               layoutId={`card-${openProjectIndex}`}
             >

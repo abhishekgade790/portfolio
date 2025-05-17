@@ -38,7 +38,7 @@ export const FloatingNav = ({ navItems, className }) => {
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.5 }}
             className={cn(
-              className = "fixed top-6 right-6 z-[5000] max-w-[calc(100vw-1rem)] overflow-hidden p-[2px] rounded-full animated-gradient-border shadow-lg",
+              className = "fixed top-4 right-4 z-[5000] max-w-[calc(100vw-1rem)] overflow-hidden p-[2px] rounded-full animated-gradient-border shadow-lg",
               className
             )}
           >
