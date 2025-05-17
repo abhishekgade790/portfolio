@@ -121,3 +121,11 @@ html {
           scrollbar-width: none;  /* Firefox */
     }
   }
+
+
+body {
+  overflow-x: hidden;
+}
+* {
+  outline: 1px solid red;
+}

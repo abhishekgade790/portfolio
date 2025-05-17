@@ -48,7 +48,7 @@ const Hero = () => {
   const techs = ["React", "Node.js", "JavaScript", "Tailwind CSS"];
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center bg-neutral-950 overflow-hidden">
+    <div className="relative w-full h-screen flex items-center justify-center bg-neutral-950 overflow-hidden overflow-x-hidden ">
       <BackgroundBeamsWithCollision />
 
       <motion.div
