@@ -6,20 +6,21 @@ import { Code, Play, InfoIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
-
-
   const [openProjectIndex, setOpenProjectIndex] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
-  const contactRef = useRef(null);
+  const headingRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
-    if (contactRef.current) observer.observe(contactRef.current);
-    return () => observer.disconnect();
+    const current = headingRef.current;
+    if (current) observer.observe(current);
+    return () => {
+      if (current) observer.unobserve(current);
+    };
   }, []);
 
   return (
@@ -28,21 +29,22 @@ export default function Projects() {
       className="min-h-screen w-full bg-neutral-900 py-16 px-4 flex items-center justify-center relative"
     >
       <div className="w-full max-w-4xl z-10">
-        <div className="text-center mb-8">
+        <div className="text-center mb-8" ref={headingRef}>
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.3, delay: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
             className="p-2 text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-900 via-indigo-200 to-blue-800"
           >
             Projects
           </motion.h1>
           <p className="text-gray-400 text-lg">A glimpse into what I've built.</p>
         </div>
+
         <GlowingEffectGrid setOpen={setOpenProjectIndex} />
       </div>
 
-      {/* Full Info Modal */}
+      {/* Project Modal */}
       <AnimatePresence>
         {openProjectIndex !== null && (
           <motion.div
@@ -57,7 +59,6 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
               layoutId={`card-${openProjectIndex}`}
             >
-              {/* Back Button */}
               <button
                 className="mb-2 top-4 left-4 text-white border border-neutral-700 bg-gradient-to-r from-neutral-800/40 to-neutral-700/40 shadow-md hover:shadow-lg backdrop-blur-lg cursor-pointer flex items-center gap-2 rounded-xl px-4 py-2 transition duration-200 hover:bg-neutral-700/50 active:scale-95"
                 onClick={() => setOpenProjectIndex(null)}
@@ -74,7 +75,6 @@ export default function Projects() {
                 <span className="hidden sm:inline text-sm font-medium">Back</span>
               </button>
 
-              {/* Content */}
               <motion.img
                 src={projects[openProjectIndex].image}
                 alt={projects[openProjectIndex].name}
@@ -236,7 +236,6 @@ const GridItem = ({
               Code
             </a>
           </div>
-
         </div>
       </motion.div>
     </motion.li>
