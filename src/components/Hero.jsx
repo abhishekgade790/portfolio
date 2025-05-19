@@ -78,15 +78,15 @@ const Hero = () => {
           >
             {/* Download CV Button */}
             <motion.a
-              href="https://drive.google.com/file/d/1fHiVo5UN9RjUs20z2QIN1wKyepQOdlbW/view?usp=drivesdk"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://abhishek-drab.vercel.app/abhishek-gade.pdf"
+              download
               whileTap={{ scale: 0.97 }}
               whileHover={{ scale: 1.04 }}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-md hover:shadow-lg hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 ease-in-out"
             >
               <Download size={18} /> Download CV
             </motion.a>
+
 
             {/* Hire Me Button with soft glow */}
             <motion.div
