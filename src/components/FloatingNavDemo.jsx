@@ -31,7 +31,7 @@ export function FloatingNavDemo() {
   },
   {
     name: "Resume",
-    link: "#resume",
+    link: "https://abhishek-drab.vercel.app/abhishek-gade.pdf",
     icon: <IconFileText className="h-4 w-4" />,
   },
   {
