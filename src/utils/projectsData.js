@@ -33,7 +33,7 @@ export const projects = [
     name: "Cinenest GPT",
     description:
       "AI-powered movie recommender with Firebase auth, Framer Motion animations, and Gemini API integration.",
-    href: "https://cinenestgpt.web.app/browse",
+    href: "https://cinenestgpt.web.app/",
     github: "https://github.com/abhishekgade790/netflix-gpt",
     image: cinenestGPTDemoImage,
     technologies: [
